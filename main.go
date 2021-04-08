@@ -19,6 +19,7 @@ func stats(w http.ResponseWriter, r *http.Request) {
 	ws, err := websocket.Upgrade(w, r)
 	if err != nil {
 		fmt.Fprintf(w, "%+v\n", err)
+		return
 	}
 
 	// Call Writter function to this websocket connection

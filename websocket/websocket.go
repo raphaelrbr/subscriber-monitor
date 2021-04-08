@@ -15,14 +15,13 @@ import (
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
+	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
 // Receive an incoming request and upgrade the request into
 // a websocket connection
 func Upgrade(w http.ResponseWriter, r *http.Request) (*websocket.Conn, error) {
 	// Alow other origin hosts connect to our websocket server
-	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
-
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
