@@ -21,7 +21,7 @@ type Item struct {
 
 type Stats struct {
 	Views       string `json:"viewCount"`
-	Subscribers string `json:"videoCount"`
+	Subscribers string `json:"subscriberCount"`
 	Videos      string `json:"videoCount"`
 }
 
